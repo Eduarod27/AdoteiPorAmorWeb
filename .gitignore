@@ -1,0 +1,12 @@
+# Dependências do Node (Geradas localmente)
+node_modules/
+.pnpm-store/
+
+# Arquivos de log de erros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

@@ -1,0 +1,25 @@
+{
+  "name": "adotei-por-amor",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Plataforma web para adoção responsável de animais - Projeto Acadêmico de Sistemas de Informação",
+  "main": "main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "adocao",
+    "pets",
+    "frontend",
+    "javascript",
+    "uninassau"
+  ],
+  "author": "Luiz Eduardo",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
