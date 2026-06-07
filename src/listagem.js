@@ -1,9 +1,9 @@
-import { animais } from './data.js';
+import { getAnimais } from './data.js';
 
 export const ListagemScreen = {
     render: () => {
         let favoritos = JSON.parse(localStorage.getItem('adotei_favoritos')) || [];
-        
+        const animais = getAnimais();
         const cards = animais.map(pet => {
             const isFav = favoritos.includes(pet.id) ? 'favoritado' : '';
             return `

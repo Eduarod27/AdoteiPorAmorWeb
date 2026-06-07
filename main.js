@@ -4,11 +4,13 @@ import { HomeScreen } from './src/home.js';
 import { ListagemScreen } from './src/listagem.js';
 import { DetalhesScreen } from './src/detalhes.js';
 import { PerfilScreen } from './src/perfil.js';
+import { CadastroScreen } from './src/cadastro.js';
 
 const routes = {
     home: HomeScreen,
     listagem: ListagemScreen,
     detalhes: DetalhesScreen,
+    cadastro: CadastroScreen,
     perfil: PerfilScreen
 };
 

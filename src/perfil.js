@@ -1,8 +1,9 @@
-import { animais } from './data.js';
+import { getAnimais } from './data.js';
 
 export const PerfilScreen = {
     render: () => {
         let favoritos = JSON.parse(localStorage.getItem('adotei_favoritos')) || [];
+        const animais = getAnimais();
         const petsFavoritados = animais.filter(pet => favoritos.includes(pet.id));
 
         const cardsFav = petsFavoritados.map(pet => `

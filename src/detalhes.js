@@ -1,7 +1,8 @@
-import { animais } from './data.js';
+import { getAnimais } from './data.js';
 
 export const DetalhesScreen = {
     render: (petId) => {
+        const animais = getAnimais();
         const pet = animais.find(a => a.id === parseInt(petId));
         if (!pet) return `<p>Pet não encontrado.</p>`;
 
@@ -39,7 +40,10 @@ export const DetalhesScreen = {
         `;
     },
     after_render: (navigateTo, petId) => {
-        const pet = animais.find(a => a.id === parseInt(petId));
+        const animais = getAnimais();
+
+        const pet = animais.find(a => a.id === parseInt(petId)
+);
 
         document.getElementById('btnVoltarLista').addEventListener('click', () => {
             navigateTo('listagem');
