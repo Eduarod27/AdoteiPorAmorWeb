@@ -390,3 +390,55 @@ body {
         text-align: center;
     }
 }
+
+.institucional-card {
+    background: white;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.institucional-card h2 {
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+.institucional-card p {
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.missao-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.missao-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.estatisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.estatistica {
+    background: #e6f0fa;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.estatistica h3 {
+    font-size: 32px;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
