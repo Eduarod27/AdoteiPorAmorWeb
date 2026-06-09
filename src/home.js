@@ -5,75 +5,123 @@ export const HomeScreen = {
 
         return `
             <section class="hero">
-                <h1>Encontre seu novo melhor amigo 🐾</h1>
+                <div class="hero-container">
+                    <div class="hero-text">
+                        <h1> Encontre seu novo melhor amigo</h1>
+                        <p>Conectando corações e transformando vidas através da adoção responsável.</p>
 
-                <p>
-                    Conectando corações e transformando vidas através da adoção responsável.
-                </p>
-
-                <button class="btn-primary" id="btnIrAdotar">
-                    Ver Animais Disponíveis
-                </button>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" id="btnIrAdotar">
+                                <i class="fa-solid fa-paw"></i> Ver Animais Disponíveis
+                            </button>    
+                            <button class="btn-register" id="btnCadastrarHero">
+                                Cadastre-se
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://www.bahianoticias.com.br/fotos/hall_colunas/1502/IMAGEM_COLUNA_9.jpg?checksum=1738078134" alt="Cachorro e Gato felizes">
+                    </div>
+                </div>
             </section>
 
-            <section class="institucional-card">
-                <h2>Quem Somos?</h2>
+            <section class="institucional-section">
 
-                <p>
-                    A Adotei Por Amor é uma iniciativa voltada para conectar
-                    animais que precisam de um lar com famílias dispostas a
-                    oferecer amor, cuidado e responsabilidade.
-                </p>
+                <div class="institucional-header">
+                    <h2>Quem Somos?</h2>
+                    <p class="subtitle">Conectando corações e transformando a realidade de animais abandonados.</p>
+                </div>
 
-                <p>
-                    Nosso objetivo é incentivar a adoção consciente e contribuir
-                    para a redução do abandono de animais.
-                </p>
+                <div class="pillars-grid">
 
-                <p>
-                    Nosso lema : NÃO COMPRE , ADOTE!
-                </p>
-            </section>
+                    <div class="pillar-card" >
 
-            <section class="institucional-card">
-                <h2>Nossa Missão</h2>
-
-                <div class="missao-grid">
-
-                    <div class="missao-item">
-                        <h3>🐾 Resgate</h3>
-                        <p>Dar uma nova oportunidade aos animais.</p>
+                        <div class="pillar-icon">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                        </div>
+                        <h3>Nossa Iniciativa</h3>
+                        <p>Conectamos protetores de animais que precisam de um lar a famílias dispostas a oferecer amor, cuidado e responsabilidade</p>
+                    </div>
+                
+                    <div class="pillar-card">
+                        <div class="pillar-icon">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3>Nosso Objetivo</h3>
+                        <p>Incentivar fortemente a adoção consciente e combater na raiz os índices de abandono de animais na nossa região.</p>
                     </div>
 
-                    <div class="missao-item">
-                        <h3>❤️ Adoção</h3>
-                        <p>Conectar famílias e pets.</p>
+                    <div class="pillar-card slogan-card">
+                        <div class="pillar-icon pulse">
+                            <i class="fa-solid fa-heart"></i>
                     </div>
-
-                    <div class="missao-item">
-                        <h3>🏠 Bem-estar</h3>
-                        <p>Promover adoções responsáveis.</p>
+                        <h3>Nosso Lema</h3>
+                        <span class="highlight-text">NÃO COMPRE, ADOTE!</span>
+                        <p>Acreditamos que o amor verdadeiro não tem preço e que a vida de um pet não deve ser comercializada.</p>
                     </div>
 
                 </div>
             </section>
 
-            <section class="institucional-card">
+
+
+            <section class="missao-section">
+                <h2>Nossa Missão</h2>
+
+                <div class="missao-grid">
+
+                    <div class="missao-card">
+                        <div class="missao-image-container">
+                            <img src="https://tse3.mm.bing.net/th/id/OIP.gZxMuSEToZnxR7HK8--K8QHaER?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Resgate de animais">
+                        </div>  
+
+                        <div class="missao-content">       
+                            <h3>Resgate</h3>
+                            <p>Dar uma nova oportunidade aos animais de rua ou em situação de risco.</p>
+                        </div>
+                    </div>
+
+                <div class="missao-card">
+                    <div class="missao-image-container">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.XCh5cVMWEn-hcz4r4jzujAHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cachorrinho fofo">
+                    </div>
+                    <div class="missao-content">
+                        <h3>Adoção</h3>
+                        <p>Conectar famílias amorosas e pets que buscam um lar definitivo.</p>
+                    </div>
+                </div>
+
+                <div class="missao-card">
+                    <div class="missao-image-container">
+                        <img src="https://i.pinimg.com/736x/24/0c/83/240c83420a6d3ca789706bb7f3f53803.jpg" alt="Gatinho fofo">
+                    </div>
+                    <div class="missao-content">
+                        <h3>Bem-estar</h3>
+                        <p>Promover e orientar a comunidade sobre a importância da adoção responsável.</p>
+                    </div>
+                </div>
+
+                </div>
+            </section>
+
+
+
+            <section class="estatisticas">
                 <h2>Nossos Números</h2>
 
-                <div class="estatisticas">
+                <div class="estatisticas-grid">
 
-                    <div class="estatistica">
+                    <div class="estatistica-card">
                         <h3>${animais.length}</h3>
                         <p>Pets Disponíveis</p>
                     </div>
 
-                    <div class="estatistica">
+                    <div class="estatistica-card">
                         <h3>150+</h3>
                         <p>Adoções Realizadas</p>
                     </div>
 
-                    <div class="estatistica">
+                    <div class="estatistica-card">
                         <h3>100%</h3>
                         <p>Compromisso com os Animais</p>
                     </div>
@@ -81,19 +129,18 @@ export const HomeScreen = {
                 </div>
             </section>
 
-            <section class="institucional-card">
+            <section class="contato-card-novo">
                 <h2>Contato e Localização</h2>
 
-                <p><strong>📍 Endereço:</strong> Recife - PE</p>
-
-                <p><strong>📞 Telefone:</strong> (81) 99999-9999</p>
-
-                <p><strong>📍 Instagram:</strong> @adoteiporamor</p>
-
-                <p><strong>✉ E-mail:</strong> contato@adoteiporamor.com</p>
-
-                <button class="btn-primary" id="btnIrAdotar2">
-                    Ver Animais Disponíveis
+                <div class="contato-lista-simples">
+                    <p><i class="fa-solid fa-location-dot"></i> <strong>Endereço:</strong> Recife - PE</p>
+                    <p><i class="fa-solid fa-phone"></i> <strong>Telefone:</strong> (81) 99999-9999</p>
+                    <p><i class="fa-brands fa-instagram"></i> <strong>Instagram:</strong> @adoteiporamor</p>
+                    <p><i class="fa-solid fa-envelope"></i> <strong>E-mail:</strong> contato@adoteiporamor.com</p>
+                </div>
+                
+                <button class="btn-primary" id="btnIrAdotar2>
+                    <i class="fa-solid fa-paw"></i> Ver Animais Disponíveis
                 </button>
             </section>
         `;
