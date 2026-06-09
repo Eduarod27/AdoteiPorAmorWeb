@@ -1,3 +1,4 @@
+import { getAnimais } from './data.js';
 // src/perfil.js
 import { animais } from './data.js';
 
@@ -5,6 +6,7 @@ export const PerfilScreen = {
     render: () => {
         // 1. Busca os favoritos (seu código original)
         let favoritos = JSON.parse(localStorage.getItem('adotei_favoritos')) || [];
+        const animais = getAnimais();
         const petsFavoritados = animais.filter(pet => favoritos.includes(pet.id));
 
         const cardsFav = petsFavoritados.map(pet => `
