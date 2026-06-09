@@ -14,8 +14,8 @@ export const HomeScreen = {
                             <button class="btn-primary" id="btnIrAdotar">
                                 <i class="fa-solid fa-paw"></i> Ver Animais Disponíveis
                             </button>    
-                            <button class="btn-register" id="btnCadastrarHero">
-                                Cadastre-se
+                            <button class="btn-primary" id="btnCadastrarHero">
+                                    <i class="fa-solid fa-user-plus"></i> Cadastre-se
                             </button>
                         </div>
                     </div>
@@ -146,25 +146,26 @@ export const HomeScreen = {
         `;
     },
 
-    after_render: (navigateTo) => {
+after_render: (navigateTo) => {
 
+        // Clique no botão "Ver Animais" do topo
         document
             .getElementById('btnIrAdotar')
             ?.addEventListener('click', () => {
                 navigateTo('listagem');
             });
 
+        // Clique no botão "Ver Animais" do rodapé/contato
         document
             .getElementById('btnIrAdotar2')
             ?.addEventListener('click', () => {
                 navigateTo('listagem');
             });
-    }
-};
 
+        // 🎯 CLIQUE DO BOTÃO CADASTRE-SE (DO HERO)
         document
-                    .getElementById('btnCadastrarHero')
-                    ?.addEventListener('click', () => {
-                        navigateTo('cadastro');
-                    });
-            
+            .getElementById('btnCadastrarHero')
+            ?.addEventListener('click', () => {
+                navigateTo('cadastro'); // Chama a tela de cadastro
+            });
+    }}
