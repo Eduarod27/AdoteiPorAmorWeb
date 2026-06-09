@@ -475,6 +475,28 @@ body {
 }
 
 
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.btn-filtro {
+    background: white;
+    border: 2px solid #0056b3;
+    color: #0056b3;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-filtro:hover {
+    background: #0056b3;
+    color: white;
+}
+
 
 .institucional-section {
     margin-top: 40px;
