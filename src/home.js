@@ -161,3 +161,10 @@ export const HomeScreen = {
             });
     }
 };
+
+        document
+                    .getElementById('btnCadastrarHero')
+                    ?.addEventListener('click', () => {
+                        navigateTo('cadastro');
+                    });
+            
