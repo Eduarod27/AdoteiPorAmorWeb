@@ -1,6 +1,4 @@
 import { getAnimais } from './data.js';
-// src/perfil.js
-import { animais } from './data.js';
 
 export const PerfilScreen = {
     render: () => {

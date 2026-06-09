@@ -1,6 +1,6 @@
-// src/cadastro.js
+// src/cadastro-pets.js
 
-export const CadastroScreen = {
+export const CadastroPetsScreen = {
     render: () => {
         return `
             <section class="pet-cadastro-section">
@@ -11,12 +11,7 @@ export const CadastroScreen = {
 
                         <div class="form-group-pet">
                             <label for="petNome">Nome do Animal</label>
-                            <input
-                                type="text"
-                                id="petNome"
-                                placeholder="Ex: Rex"
-                                required
-                            >
+                            <input type="text" id="petNome" placeholder="Ex: Rex" required>
                         </div>
 
                         <div class="form-group-pet">
@@ -29,12 +24,7 @@ export const CadastroScreen = {
 
                         <div class="form-group-pet">
                             <label for="petIdade">Idade</label>
-                            <input
-                                type="text"
-                                id="petIdade"
-                                placeholder="Ex: 2 anos"
-                                required
-                            >
+                            <input type="text" id="petIdade" placeholder="Ex: 2 anos" required>
                         </div>
 
                         <div class="form-group-pet">
@@ -48,12 +38,7 @@ export const CadastroScreen = {
 
                         <div class="form-group-pet">
                             <label for="petTemperamento">Temperamento</label>
-                            <input
-                                type="text"
-                                id="petTemperamento"
-                                placeholder="Ex: Brincalhão, dócil..."
-                                required
-                            >
+                            <input type="text" id="petTemperamento" placeholder="Ex: Brincalhão, dócil..." required>
                         </div>
 
                         <button type="submit" class="btn-primary">
@@ -72,9 +57,8 @@ export const CadastroScreen = {
         form?.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Criar a estrutura do novo pet alinhada aos novos IDs
             const novoAnimal = {
-                id: Date.now(),
+                id: Date.now(), // Gera ID numérico único e gigante
                 nome: document.getElementById('petNome').value,
                 especie: document.getElementById('petEspecie').value,
                 idade: document.getElementById('petIdade').value,
@@ -83,9 +67,7 @@ export const CadastroScreen = {
                 icone: document.getElementById('petEspecie').value === 'Cão' ? 'fa-dog' : 'fa-cat'
             };
 
-            // Recupera a lista global de animais do localStorage ou cria uma nova array vazia
             let animais = JSON.parse(localStorage.getItem('animais')) || [];
-
             animais.push(novoAnimal);
             localStorage.setItem('animais', JSON.stringify(animais));
 

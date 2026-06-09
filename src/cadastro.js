@@ -2,34 +2,65 @@
 
 export const CadastroScreen = {
     render: () => {
+        // Busca se já existe um usuário salvo para pré-preencher o formulário
+        const usuarioExistente = JSON.parse(localStorage.getItem('usuario_logado')) || {};
+
         return `
-            <section class="cadastro-section">
-                <div class="cadastro-card">
-                    <h2>Criar Conta</h2>
-                    <p class="subtitle">Faça seu cadastro para ajudar ou adotar um amigo!</p>
+            <section class="pet-cadastro-section">
+                
+                <div class="pet-cadastro-card">
+                    <h2 class="section-title" style="border-bottom: 2px solid #e6f0fa; padding-bottom: 10px; margin-bottom: 20px;">Meu Cadastro</h2>
+                    <p class="subtitle" style="color: #666; margin-bottom: 20px; font-size: 14px;">Mantenha seus dados atualizados para adotar ou cadastrar pets!</p>
                     
-                    <form id="formCadastro">
-                        <div class="form-group">
+                    <form id="formCadastro" style="display: flex; flex-direction: column; gap: 20px;">
+                        
+                        <div class="form-group-pet">
                             <label for="cadNome">Nome Completo</label>
-                            <input type="text" id="cadNome" placeholder="Digite seu nome..." required>
+                            <input 
+                                type="text" 
+                                id="cadNome" 
+                                placeholder="Digite seu nome..." 
+                                value="${usuarioExistente.nome || ''}" 
+                                required
+                            >
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group-pet">
                             <label for="cadTelefone">Telefone / WhatsApp</label>
-                            <input type="tel" id="cadTelefone" placeholder="(81) 99999-9999" required>
+                            <input 
+                                type="tel" 
+                                id="cadTelefone" 
+                                placeholder="(81) 99999-9999" 
+                                value="${usuarioExistente.telefone || ''}" 
+                                required
+                            >
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group-pet">
                             <label for="cadCidade">Cidade</label>
-                            <input type="text" id="cadCidade" placeholder="Ex: Recife - PE" required>
+                            <input 
+                                type="text" 
+                                id="cadCidade" 
+                                placeholder="Ex: Recife - PE" 
+                                value="${usuarioExistente.cidade || ''}" 
+                                required
+                            >
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group-pet">
                             <label for="cadEmail">E-mail</label>
-                            <input type="email" id="cadEmail" placeholder="seu@email.com" required>
+                            <input 
+                                type="email" 
+                                id="cadEmail" 
+                                placeholder="seu@email.com" 
+                                value="${usuarioExistente.email || ''}" 
+                                required
+                            >
                         </div>
 
-                        <button type="submit" class="btn-primary">Finalizar Cadastro</button>
+                        <button type="submit" class="btn-primary" style="align-self: flex-start; margin-top: 10px;">
+                            <i class="fa-solid fa-floppy-disk"></i> Salvar Alterações
+                        </button>
                     </form>
                 </div>
             </section>
@@ -40,21 +71,23 @@ export const CadastroScreen = {
         const form = document.getElementById('formCadastro');
         
         form?.addEventListener('submit', (event) => {
-            event.preventDefault(); // Evita a página de recarregar
+            event.preventDefault(); // Evita o recarregamento da página
             
-            // Criando o objeto com as informações capturadas corretamente pelos IDs atuais do HTML
+            // Captura os dados atualizados do formulário
             const usuarioLogado = {
-                nome: document.getElementById('cadNome').value,
-                telefone: document.getElementById('cadTelefone').value,
-                cidade: document.getElementById('cadCidade').value,
-                email: document.getElementById('cadEmail').value               
+                nome: document.getElementById('cadNome').value.trim(),
+                telefone: document.getElementById('cadTelefone').value.trim(),
+                cidade: document.getElementById('cadCidade').value.trim(),
+                email: document.getElementById('cadEmail').value.trim()               
             };
             
-            // Salvando exatamente a variável criada acima
+            // Salva no LocalStorage
             localStorage.setItem('usuario_logado', JSON.stringify(usuarioLogado));
             
-            alert('Cadastro realizado com sucesso!');
-            navigateTo('perfil'); // Redireciona para ver o perfil atualizado
+            alert('Cadastro atualizado com sucesso! 🎉');
+            
+            // Redireciona direto para a tela de Perfil
+            navigateTo('perfil');
         });
     }
 };

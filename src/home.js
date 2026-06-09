@@ -1,7 +1,8 @@
-import { animais } from './data.js';
+import { getAnimais } from './data.js';
 
 export const HomeScreen = {
     render: () => {
+        const animais = getAnimais(); 
 
         return `
             <section class="hero">
@@ -26,16 +27,13 @@ export const HomeScreen = {
             </section>
 
             <section class="institucional-section">
-
                 <div class="institucional-header">
                     <h2>Quem Somos?</h2>
                     <p class="subtitle">Conectando corações e transformando a realidade de animais abandonados.</p>
                 </div>
 
                 <div class="pillars-grid">
-
                     <div class="pillar-card" >
-
                         <div class="pillar-icon">
                             <i class="fa-solid fa-handshake-angle"></i>
                         </div>
@@ -54,78 +52,66 @@ export const HomeScreen = {
                     <div class="pillar-card slogan-card">
                         <div class="pillar-icon pulse">
                             <i class="fa-solid fa-heart"></i>
-                    </div>
+                        </div>
                         <h3>Nosso Lema</h3>
                         <span class="highlight-text">NÃO COMPRE, ADOTE!</span>
                         <p>Acreditamos que o amor verdadeiro não tem preço e que a vida de um pet não deve ser comercializada.</p>
                     </div>
-
                 </div>
             </section>
-
-
 
             <section class="missao-section">
                 <h2>Nossa Missão</h2>
 
                 <div class="missao-grid">
-
                     <div class="missao-card">
                         <div class="missao-image-container">
                             <img src="https://tse3.mm.bing.net/th/id/OIP.gZxMuSEToZnxR7HK8--K8QHaER?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Resgate de animais">
                         </div>  
-
                         <div class="missao-content">       
                             <h3>Resgate</h3>
                             <p>Dar uma nova oportunidade aos animais de rua ou em situação de risco.</p>
                         </div>
                     </div>
 
-                <div class="missao-card">
-                    <div class="missao-image-container">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.XCh5cVMWEn-hcz4r4jzujAHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cachorrinho fofo">
+                    <div class="missao-card">
+                        <div class="missao-image-container">
+                            <img src="https://tse1.mm.bing.net/th/id/OIP.XCh5cVMWEn-hcz4r4jzujAHaEJ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cachorrinho fofo">
+                        </div>
+                        <div class="missao-content">
+                            <h3>Adoção</h3>
+                            <p>Conectar famílias amorosas e pets que buscam um lar definitivo.</p>
+                        </div>
                     </div>
-                    <div class="missao-content">
-                        <h3>Adoção</h3>
-                        <p>Conectar famílias amorosas e pets que buscam um lar definitivo.</p>
-                    </div>
-                </div>
 
-                <div class="missao-card">
-                    <div class="missao-image-container">
-                        <img src="https://i.pinimg.com/736x/24/0c/83/240c83420a6d3ca789706bb7f3f53803.jpg" alt="Gatinho fofo">
+                    <div class="missao-card">
+                        <div class="missao-image-container">
+                            <img src="https://i.pinimg.com/736x/24/0c/83/240c83420a6d3ca789706bb7f3f53803.jpg" alt="Gatinho fofo">
+                        </div>
+                        <div class="missao-content">
+                            <h3>Bem-estar</h3>
+                            <p>Promover e orientar a comunidade sobre a importância da adoção responsável.</p>
+                        </div>
                     </div>
-                    <div class="missao-content">
-                        <h3>Bem-estar</h3>
-                        <p>Promover e orientar a comunidade sobre a importância da adoção responsável.</p>
-                    </div>
-                </div>
-
                 </div>
             </section>
-
-
 
             <section class="estatisticas">
                 <h2>Nossos Números</h2>
 
                 <div class="estatisticas-grid">
-
                     <div class="estatistica-card">
                         <h3>${animais.length}</h3>
                         <p>Pets Disponíveis</p>
                     </div>
-
                     <div class="estatistica-card">
                         <h3>150+</h3>
                         <p>Adoções Realizadas</p>
                     </div>
-
                     <div class="estatistica-card">
                         <h3>100%</h3>
                         <p>Compromisso com os Animais</p>
                     </div>
-
                 </div>
             </section>
 
@@ -139,33 +125,24 @@ export const HomeScreen = {
                     <p><i class="fa-solid fa-envelope"></i> <strong>E-mail:</strong> contato@adoteiporamor.com</p>
                 </div>
                 
-                <button class="btn-primary" id="btnIrAdotar2>
+                <button class="btn-primary" id="btnIrAdotar2">
                     <i class="fa-solid fa-paw"></i> Ver Animais Disponíveis
                 </button>
             </section>
         `;
     },
 
-after_render: (navigateTo) => {
+    after_render: (navigateTo) => {
+        document.getElementById('btnIrAdotar')?.addEventListener('click', () => {
+            navigateTo('listagem');
+        });
 
-        // Clique no botão "Ver Animais" do topo
-        document
-            .getElementById('btnIrAdotar')
-            ?.addEventListener('click', () => {
-                navigateTo('listagem');
-            });
+        document.getElementById('btnIrAdotar2')?.addEventListener('click', () => {
+            navigateTo('listagem');
+        });
 
-        // Clique no botão "Ver Animais" do rodapé/contato
-        document
-            .getElementById('btnIrAdotar2')
-            ?.addEventListener('click', () => {
-                navigateTo('listagem');
-            });
-
-        // 🎯 CLIQUE DO BOTÃO CADASTRE-SE (DO HERO)
-        document
-            .getElementById('btnCadastrarHero')
-            ?.addEventListener('click', () => {
-                navigateTo('cadastro'); // Chama a tela de cadastro
-            });
-    }}
+        document.getElementById('btnCadastrarHero')?.addEventListener('click', () => {
+            navigateTo('cadastro');
+        });
+    }
+};

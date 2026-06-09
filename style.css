@@ -1,5 +1,31 @@
 /* ==========================================================================
-   CONFIGURAÇÕES GERAIS & PALETA AZUL
+   PALETA DE CORES & VARIÁVEIS GLOBAIS
+   ========================================================================== */
+:root {
+    /* Tons de Azul (Tema Principal) */
+    --cor-primaria: #0056b3;
+    --cor-primaria-hover: #0080ff;
+    --fundo-azul-claro: #e6f0fa;
+    --fundo-gradiente-inicio: #f4f8fc;
+    --navbar-escuro: #1a2530;
+
+    /* Tons Neutros (Fundos e Textos) */
+    --fundo-principal: #f8f9fa;
+    --texto-escuro: #1a2530;
+    --texto-suave: #555555;
+    --texto-claro: #666666;
+    --texto-cinza-medio: #6c757d;
+    --borda-cinza: #e2e8f0;
+    --borda-input: #ced4da;
+    --branco: #ffffff;
+
+    /* Alertas e Destaques */
+    --favoritado-vermelho: #ff4d4d;
+    --destaque-vermelho: #dc3545;
+}
+
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS (RESET & BASE)
    ========================================================================== */
 * {
     margin: 0;
@@ -9,14 +35,14 @@
 }
 
 body {
-    background-color: #f8f9fa;
-    color: #1a2530;
+    background-color: var(--fundo-principal);
+    color: var(--texto-escuro);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Container que centraliza o conteúdo das telas */
+/* Container unificado que centraliza o conteúdo de todas as telas */
 .container {
     flex: 1;
     padding: 20px;
@@ -25,20 +51,20 @@ body {
     width: 100%;
 }
 
-/* Títulos das seções */
+/* Títulos padrões de seções */
 .section-title {
     margin-bottom: 25px;
-    color: #0056b3;
-    border-bottom: 2px solid #e6f0fa;
+    color: var(--cor-primaria);
+    border-bottom: 2px solid var(--fundo-azul-claro);
     padding-bottom: 10px;
 }
 
 /* ==========================================================================
-   NAVEGAÇÃO (NAVBAR)
+   COMPONENTE: NAVEGAÇÃO GLOBAL (NAVBAR)
    ========================================================================== */
 .navbar {
-    background-color: #0056b3;
-    color: white;
+    background-color: var(--cor-primaria);
+    color: var(--branco);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,7 +91,7 @@ body {
 .nav-btn {
     background: none;
     border: none;
-    color: white;
+    color: var(--branco);
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
@@ -76,37 +102,36 @@ body {
 
 .nav-btn:hover,
 .nav-btn.active {
-    background-color: #0080ff;
+    background-color: var(--cor-primaria-hover);
 }
 
 .menu-toggle {
-    display: none;
-    /* Escondido no PC */
+    display: none; /* Escondido no Desktop */
     background: none;
     border: none;
-    color: white;
+    color: var(--branco);
     font-size: 24px;
     cursor: pointer;
 }
 
 /* ==========================================================================
-   TELA 1: HOME (HERO SECTION)
+   PÁGINA: HOME - ABA INICIAL
    ========================================================================== */
+/* Seção Hero de Boas-Vindas */
 .hero {
-    background: linear-gradient(135deg, #f4f8fc, #ffffff);
+    background: linear-gradient(135deg, var(--fundo-gradiente-inicio), var(--branco));
     padding: 50px 40px;
     border-radius: 20px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--borda-cinza);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     margin-top: 20px;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-
 }
 
-.hero:hover{
+.hero:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 86, 179, 0.12);
-    border-color: #0056b3;-color: #0056b3;
+    border-color: var(--cor-primaria);
 }
 
 .hero-container {
@@ -117,8 +142,6 @@ body {
     flex-wrap: wrap;
 }
 
-
-
 .hero-text {
     flex: 1;
     min-width: 300px;
@@ -126,7 +149,7 @@ body {
 }
 
 .hero-text h1 {
-    color: #0056b3;
+    color: var(--cor-primaria);
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 15px;
@@ -135,7 +158,7 @@ body {
 
 .hero-text p {
     font-size: 1.1rem;
-    color: #555555;
+    color: var(--texto-suave);
     margin-bottom: 30px;
     line-height: 1.6;
 }
@@ -161,14 +184,14 @@ body {
     font-weight: 600;
     border-radius: 8px;
     background: transparent;
-    border: 2px solid #0056b3;
-    color: #0056b3;
+    border: 2px solid var(--cor-primaria);
+    color: var(--cor-primaria);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .hero-text .btn-register:hover {
-    background: #e6f0fa;
+    background: var(--fundo-azul-claro);
 }
 
 .hero image {
@@ -187,340 +210,7 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* ==========================================================================
-   TELA 2: LISTAGEM DE ANIMAIS (CARDS)
-   ========================================================================== */
-.grid-animais {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.card-pet {
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-pet:hover {
-    transform: translateY(-5px);
-}
-
-.img-placeholder {
-    height: 200px;
-    background-color: #e6f0fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0056b3;
-    font-size: 48px;
-}
-
-.card-info {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.card-info h3 {
-    margin-bottom: 10px;
-}
-
-.tag-idade {
-    background-color: #e6f0fa;
-    color: #0056b3;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
-    align-self: flex-start;
-    margin-bottom: 15px;
-}
-
-.card-actions {
-    margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Botões de Favoritar */
-.btn-fav {
-    background: none;
-    border: none;
-    color: #6c757d;
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.btn-fav.favoritado {
-    color: #ff4d4d;
-}
-
-/* ==========================================================================
-   TELA 3: DETALHES DO PET & FORMULÁRIO
-   ========================================================================== */
-/* Seção Base de Cadastro de Pets */
-.pet-cadastro-section {
-    padding: 20px 0;
-}
-
-.pet-cadastro-card {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-/* Estrutura do Formulário de Pets */
-#petFormCadastro {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group-pet {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-group-pet label {
-    font-weight: 600;
-    color: #333;
-    font-size: 14px;
-}
-
-.form-group-pet input,
-.form-group-pet select {
-    padding: 12px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: border-color 0.2s ease;
-    background-color: #fff;
-}
-
-.form-group-pet input:focus,
-.form-group-pet select:focus {
-    outline: none;
-    border-color: #0056b3;
-    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
-}
-
-/* Detalhes Visuais Complementares */
-.detalhes-container {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.detalhes-header {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-bottom: 25px;
-}
-
-.img-placeholder-grande {
-    width: 100px;
-    height: 100px;
-    background-color: #e6f0fa;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    color: #0056b3;
-}
-
-.detalhes-info p {
-    font-size: 16px;
-    margin-bottom: 12px;
-    line-height: 1.6;
-}
-
-/* ==========================================================================
-   TELA 4: CONFIGURAÇÕES / PERFIL / FAVORITOS MINI
-   ========================================================================== */
-.perfil-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.perfil-card {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.user-info p {
-    margin-bottom: 12px;
-    font-size: 16px;
-}
-
-.grid-favoritos-mini {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.card-pet-mini {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px;
-    background: #f8f9fa;
-    border-radius: 6px;
-    border-left: 4px solid #0056b3;
-}
-
-.card-pet-mini div {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.card-pet-mini i {
-    color: #0056b3;
-    font-size: 20px;
-}
-
-.btn-ver-mini {
-    background: #0056b3;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-/* ==========================================================================
-   BOTÕES GERAIS
-   ========================================================================== */
-.btn-primary,
-.btn-secondary {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 16px;
-    transition: background 0.3s ease;
-}
-
-.btn-primary {
-    background-color: #0056b3;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #0080ff;
-}
-
-.btn-secondary {
-    background-color: #6c757d;
-    color: white;
-    margin-bottom: 20px;
-}
-
-.btn-secondary:hover {
-    background-color: #495057;
-}
-
-/* ==========================================================================
-   RODAPÉ (FOOTER)
-   ========================================================================== */
-.footer {
-    background-color: #1a2530;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: auto;
-    font-size: 14px;
-}
-
-/* ==========================================================================
-   RESPONSIVIDADE (Telas menores/Mobile)
-   ========================================================================== */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        /* Mostra o botão hambúrguer */
-    }
-
-    .nav-links {
-        display: none;
-        /* Esconde a lista padrão */
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #0056b3;
-        padding: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-        /* Mostra o menu quando ativo via JS */
-    }
-
-    .nav-btn {
-        width: 100%;
-        text-align: left;
-    }
-
-    .perfil-grid {
-        grid-template-columns: 1fr;
-        /* Perfil e favoritos ficam um embaixo do outro */
-    }
-
-    .detalhes-header {
-        flex-direction: column;
-        /* Foto do pet fica em cima do nome na tela de detalhes */
-        text-align: center;
-    }
-}
-
-
-.filtros {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-}
-
-.btn-filtro {
-    background: white;
-    border: 2px solid #0056b3;
-    color: #0056b3;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-filtro:hover {
-    background: #0056b3;
-    color: white;
-}
-
-
+/* Seção Institucional e Pilares */
 .institucional-section {
     margin-top: 40px;
     padding: 20px 0;
@@ -532,14 +222,14 @@ body {
 }
 
 .institucional-header h2 {
-    color: #0056b3;
+    color: var(--cor-primaria);
     font-size: 2rem;
     margin-bottom: 8px;
     font-weight: 700;
 }
 
 .institucional-header .subtitle {
-    color: #666;
+    color: var(--texto-claro);
     font-size: 1rem;
 }
 
@@ -550,11 +240,10 @@ body {
 }
 
 .pillar-card {
-    background: white;
-    padding: 35px 30px;
+    background: var(--branco);
     border-radius: 16px;
-    box-shadow: 0 4px 12px(0, 0, 0, 0.05);
-    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 2px solid var(--borda-cinza);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -565,14 +254,14 @@ body {
 .pillar-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 86, 179, 0.12);
-    border-color: #0056b3;
+    border-color: var(--cor-primaria);
 }
 
 .pillar-icon {
     width: 55px;
     height: 55px;
-    background: #e6f0fa;
-    color: #0056b3;
+    background: var(--fundo-azul-claro);
+    color: var(--cor-primaria);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -583,8 +272,8 @@ body {
 }
 
 .pillar-card:hover .pillar-icon {
-    background: #0056b3;
-    color: white;
+    background: var(--cor-primaria);
+    color: var(--branco);
 }
 
 .pillar-card h3 {
@@ -595,20 +284,20 @@ body {
 }
 
 .pillar-card p {
-    color: #555;
+    color: var(--texto-suave);
     line-height: 1.6;
     font-size: 0.95rem;
     margin: 0;
 }
 
 .slogan-card {
-    background: linear-gradient(145deg, #ffffff, #f4f8fc);
+    background: linear-gradient(145deg, var(--branco), var(--fundo-gradiente-inicio));
 }
 
 .highlight-text {
     display: block;
     font-weight: 800;
-    color: #dc3545;
+    color: var(--destaque-vermelho);
     font-size: 1.1rem;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -619,30 +308,20 @@ body {
 }
 
 @keyframes pulseAnimation {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
-
-    100% {
-        transform: scale(1);
-    }
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
 }
 
-
+/* Seção de Missão, Visão e Valores */
 .missao-section {
     margin-top: 20px;
     padding: 20px 0;
     text-align: center;
-
 }
 
-
 .missao-section h2 {
-    color: #0056b3;
+    color: var(--cor-primaria);
     font-size: 2rem;
     margin-bottom: 30px;
     font-weight: 700;
@@ -655,9 +334,9 @@ body {
 }
 
 .missao-card {
-    background: white;
+    background: var(--branco);
     border-radius: 16px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--borda-cinza);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     display: flex;
@@ -693,7 +372,7 @@ body {
 }
 
 .missao-content p {
-    color: #555;
+    color: var(--texto-suave);
     line-height: 1.6;
     font-size: 0.95rem;
     margin: 0;
@@ -708,6 +387,26 @@ body {
     transform: scale(1.08);
 }
 
+/* Seção de Estatísticas (Impacto) */
+.estatisticas {
+    margin-top: 20px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.estatisticas h2 {
+    color: var(--cor-primaria);
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.estatisticas h3 {
+    font-size: 32px;
+    color: var(--cor-primaria);
+    margin-bottom: 10px;
+    text-align: center;
+}
 
 .estatisticas-grid {
     display: grid;
@@ -717,49 +416,28 @@ body {
 }
 
 .estatistica-card {
-    background: #e6f0fa;
+    background: var(--fundo-azul-claro);
     padding: 25px;
     border-radius: 8px;
     text-align: center;
 }
 
-.estatisticas {
-    margin-top: 20px;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.estatisticas h2 {
-    color: #0056b3;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-
-.estatisticas h3 {
-    font-size: 32px;
-    color: #0056b3;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-/* O Card Principal com a borda moderna que você aprendeu */
+/* Seção de Informações de Contato */
 .contato-card-novo {
-    background: white;
+    background: var(--branco);
     margin-top: 40px;
     padding: 30px;
     border-radius: 16px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--borda-cinza);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .contato-card-novo h2 {
-    color: #0056b3;
+    color: var(--cor-primaria);
     margin-bottom: 20px;
     font-weight: 700;
 }
 
-/* Espaçamento e cor dos ícones */
 .contato-lista-simples p {
     font-size: 1rem;
     line-height: 1.8;
@@ -767,17 +445,13 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    /* Afasta o ícone do texto */
 }
 
 .contato-lista-simples i {
-    color: #0056b3;
-    /* Deixa todos os ícones com o azul do seu tema */
+    color: var(--cor-primaria);
     width: 20px;
-    /* Alinha todos os ícones na mesma linha vertical */
 }
 
-/* Estilização básica do Botão */
 .contato-card-novo .btn-primary {
     margin-top: 15px;
     padding: 12px 24px;
@@ -787,4 +461,334 @@ body {
     align-items: center;
     gap: 8px;
     cursor: pointer;
+}
+
+/* ==========================================================================
+   PÁGINA: LISTAGEM DE ANIMAIS - ABA QUERO ADOTAR
+   ========================================================================== */
+/* Container dos Botões de Filtros */
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.btn-filtro {
+    background: var(--branco);
+    border: 2px solid var(--cor-primaria);
+    color: var(--cor-primaria);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-filtro:hover {
+    background: var(--cor-primaria);
+    color: var(--branco);
+}
+
+/* Grid Principal de Cards dos Pets */
+.grid-animais {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card-pet {
+    background-color: var(--branco);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-pet:hover {
+    transform: translateY(-5px);
+}
+
+.img-placeholder {
+    height: 200px;
+    background-color: var(--fundo-azul-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-primaria);
+    font-size: 48px;
+}
+
+.card-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    margin-bottom: 10px;
+}
+
+.tag-idade {
+    background-color: var(--fundo-azul-claro);
+    color: var(--cor-primaria);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+.card-actions {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Elemento de Interação: Favoritar */
+.btn-fav {
+    background: none;
+    border: none;
+    color: var(--texto-cinza-medio);
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-fav.favoritado {
+    color: var(--favoritado-vermelho);
+}
+
+/* ==========================================================================
+   PÁGINA: DETALHES DO PET & CADASTRO DE PETS - ABA CADASTRAR ANIMAL
+   ========================================================================== */
+/* Estrutura de Layout e Cards dos Formulários */
+.pet-cadastro-section {
+    padding: 20px 0;
+}
+
+.pet-cadastro-card {
+    background: var(--branco);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#petFormCadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Estilização dos Campos de Formulários unificados */
+.form-group-pet {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group-pet label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group-pet input,
+.form-group-pet select {
+    padding: 12px;
+    border: 1px solid var(--borda-input);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.2s ease;
+    background-color: var(--branco);
+}
+
+.form-group-pet input:focus,
+.form-group-pet select:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+/* Conteúdo da sub-página de Detalhes Expandidos */
+.detalhes-container {
+    background: var(--branco);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.detalhes-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.img-placeholder-grande {
+    width: 100px;
+    height: 100px;
+    background-color: var(--fundo-azul-claro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: var(--cor-primaria);
+}
+
+.detalhes-info p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   PÁGINA: MEU PERFIL - ABA CONFIGURAÇÕES / PERFIL / FAVORITOS MINI
+   ========================================================================== */
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.perfil-card {
+    background: var(--branco);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info p {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+/* Painel de Favoritados Mini na visão lateral */
+.grid-favoritos-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.card-pet-mini {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background: var(--fundo-principal);
+    border-radius: 6px;
+    border-left: 4px solid var(--cor-primaria);
+}
+
+.card-pet-mini div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card-pet-mini i {
+    color: var(--cor-primaria);
+    font-size: 20px;
+}
+
+.btn-ver-mini {
+    background: var(--cor-primaria);
+    color: var(--branco);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   COMPONENTES GLOBAIS: BOTÕES DE SISTEMA
+   ========================================================================== */
+.btn-primary,
+.btn-secondary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--cor-primaria);
+    color: var(--branco);
+}
+
+.btn-primary:hover {
+    background-color: var(--cor-primaria-hover);
+}
+
+.btn-secondary {
+    background-color: var(--texto-cinza-medio);
+    color: var(--branco);
+    margin-bottom: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+}
+
+/* ==========================================================================
+   COMPONENTE: RODAPÉ DE PÁGINA (FOOTER)
+   ========================================================================== */
+.footer {
+    background-color: var(--navbar-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 14px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE GERAL (MEDIA QUERIES - MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Revela o botão hambúrguer */
+    }
+
+    .nav-links {
+        display: none; /* Recolhe o menu principal */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-primaria);
+        padding: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex; /* Exibido dinamicamente via JS toggle */
+    }
+
+    .nav-btn {
+        width: 100%;
+        text-align: left;
+    }
+
+    .perfil-grid {
+        grid-template-columns: 1fr; /* Quebra em bloco na tela do usuário */
+    }
+
+    .detalhes-header {
+        flex-direction: column; /* Alinha no topo de forma vertical nos Detalhes */
+        text-align: center;
+    }
 }

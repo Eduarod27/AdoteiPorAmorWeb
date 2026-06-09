@@ -1,18 +1,12 @@
 import { getAnimais } from './data.js';
 
 export const ListagemScreen = {
-    render: () => {
-        let favoritos = JSON.parse(localStorage.getItem('adotei_favoritos')) || [];
-        const animais = getAnimais();
-        const cards = animais.map(pet => {
-            const isFav = favoritos.includes(pet.id) ? 'favoritado' : '';
     render: (filtro = 'todos') => {
-
-        let favoritos =
-            JSON.parse(localStorage.getItem('adotei_favoritos')) || [];
-
+        let favoritos = JSON.parse(localStorage.getItem('adotei_favoritos')) || [];
+        const animais = getAnimais(); // Resgatado para o lugar correto
         let animaisFiltrados = animais;
 
+        // Aplicação dos filtros baseados na espécie
         if (filtro === 'cao') {
             animaisFiltrados = animais.filter(
                 pet => pet.especie === 'Cão'
@@ -25,12 +19,9 @@ export const ListagemScreen = {
             );
         }
 
+        // Geração dos cards de animais
         const cards = animaisFiltrados.map(pet => {
-
-            const isFav =
-                favoritos.includes(pet.id)
-                    ? 'favoritado'
-                    : '';
+            const isFav = favoritos.includes(pet.id) ? 'favoritado' : '';
 
             return `
                 <div class="card-pet">
@@ -48,7 +39,6 @@ export const ListagemScreen = {
                         <p>Porte: ${pet.porte}</p>
 
                         <div class="card-actions">
-
                             <button
                                 class="btn-primary btn-detalhes"
                                 data-id="${pet.id}">
@@ -58,48 +48,22 @@ export const ListagemScreen = {
                             <button
                                 class="btn-fav ${isFav}"
                                 data-id="${pet.id}">
-
                                 <i class="fa-solid fa-heart"></i>
-
                             </button>
-
                         </div>
                     </div>
                 </div>
             `;
         }).join('');
 
+        // Retorno do HTML completo da página
         return `
-            <h2 class="section-title">
-                Animais para Adoção
-            </h2>
+            <h2 class="section-title">Animais para Adoção</h2>
 
             <div class="filtros">
-
-                <button
-                    class="btn-filtro"
-                    data-filtro="todos">
-
-                    Todos
-
-                </button>
-
-                <button
-                    class="btn-filtro"
-                    data-filtro="cao">
-
-                    Cães
-
-                </button>
-
-                <button
-                    class="btn-filtro"
-                    data-filtro="gato">
-
-                    Gatos
-
-                </button>
-
+                <button class="btn-filtro" data-filtro="todos">Todos</button>
+                <button class="btn-filtro" data-filtro="cao">Cães</button>
+                <button class="btn-filtro" data-filtro="gato">Gatos</button>
             </div>
 
             <div class="grid-animais">
@@ -109,81 +73,43 @@ export const ListagemScreen = {
     },
 
     after_render: (navigateTo, filtro = 'todos') => {
-
+        // Evento dos botões de Filtro
         document.querySelectorAll('.btn-filtro')
             .forEach(btn => {
-
                 btn.addEventListener('click', () => {
+                    const novoFiltro = btn.getAttribute('data-filtro');
+                    const app = document.getElementById('app');
 
-                    const novoFiltro =
-                        btn.getAttribute('data-filtro');
-
-                    const app =
-                        document.getElementById('app');
-
-                    app.innerHTML =
-                        ListagemScreen.render(novoFiltro);
-
-                    ListagemScreen.after_render(
-                        navigateTo,
-                        novoFiltro
-                    );
+                    app.innerHTML = ListagemScreen.render(novoFiltro);
+                    ListagemScreen.after_render(navigateTo, novoFiltro);
                 });
             });
 
+        // Evento do botão Detalhes
         document.querySelectorAll('.btn-detalhes')
             .forEach(btn => {
-
                 btn.addEventListener('click', () => {
-
-                    const id =
-                        btn.getAttribute('data-id');
-
+                    const id = btn.getAttribute('data-id');
                     navigateTo('detalhes', id);
                 });
             });
 
+        // Evento do botão Favoritar
         document.querySelectorAll('.btn-fav')
             .forEach(btn => {
-
                 btn.addEventListener('click', () => {
-
-                    const id =
-                        parseInt(
-                            btn.getAttribute('data-id')
-                        );
-
-                    let favoritos =
-                        JSON.parse(
-                            localStorage.getItem(
-                                'adotei_favoritos'
-                            )
-                        ) || [];
+                    const id = parseInt(btn.getAttribute('data-id'));
+                    let favoritos = JSON.parse(localStorage.getItem('adotei_favoritos')) || [];
 
                     if (favoritos.includes(id)) {
-
-                        favoritos =
-                            favoritos.filter(
-                                favId => favId !== id
-                            );
-
-                        btn.classList.remove(
-                            'favoritado'
-                        );
-
+                        favoritos = favoritos.filter(favId => favId !== id);
+                        btn.classList.remove('favoritado');
                     } else {
-
                         favoritos.push(id);
-
-                        btn.classList.add(
-                            'favoritado'
-                        );
+                        btn.classList.add('favoritado');
                     }
 
-                    localStorage.setItem(
-                        'adotei_favoritos',
-                        JSON.stringify(favoritos)
-                    );
+                    localStorage.setItem('adotei_favoritos', JSON.stringify(favoritos));
                 });
             });
     }
