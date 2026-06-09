@@ -5,6 +5,7 @@ import { ListagemScreen } from './src/listagem.js';
 import { DetalhesScreen } from './src/detalhes.js';
 import { PerfilScreen } from './src/perfil.js';
 import { CadastroScreen } from './src/cadastro-pets.js';
+import { CadastroScreen } from './src/cadastro.js';
 
 const routes = {
     home: HomeScreen,
@@ -12,6 +13,8 @@ const routes = {
     detalhes: DetalhesScreen,
     cadastro: CadastroScreen,
     perfil: PerfilScreen
+    perfil: PerfilScreen,
+    cadastro: CadastroScreen
 };
 
 function navigateTo(screenKey, idParam = null) {
