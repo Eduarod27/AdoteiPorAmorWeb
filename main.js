@@ -4,7 +4,7 @@ import { HomeScreen } from './src/home.js';
 import { ListagemScreen } from './src/listagem.js';
 import { DetalhesScreen } from './src/detalhes.js';
 import { PerfilScreen } from './src/perfil.js';
-import { CadastroScreen } from './src/cadastro.js';
+import { CadastroScreen } from './src/cadastro-pets.js';
 
 const routes = {
     home: HomeScreen,
