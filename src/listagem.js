@@ -6,7 +6,6 @@ export const ListagemScreen = {
         const animais = getAnimais(); // Resgatado para o lugar correto
         let animaisFiltrados = animais;
 
-        // Aplicação dos filtros baseados na espécie
         if (filtro === 'cao') {
             animaisFiltrados = animais.filter(
                 pet => pet.especie === 'Cão'
@@ -19,7 +18,6 @@ export const ListagemScreen = {
             );
         }
 
-        // Geração dos cards de animais
         const cards = animaisFiltrados.map(pet => {
             const isFav = favoritos.includes(pet.id) ? 'favoritado' : '';
 
@@ -56,7 +54,6 @@ export const ListagemScreen = {
             `;
         }).join('');
 
-        // Retorno do HTML completo da página
         return `
             <h2 class="section-title">Animais para Adoção</h2>
 
@@ -73,7 +70,6 @@ export const ListagemScreen = {
     },
 
     after_render: (navigateTo, filtro = 'todos') => {
-        // Evento dos botões de Filtro
         document.querySelectorAll('.btn-filtro')
             .forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -85,7 +81,6 @@ export const ListagemScreen = {
                 });
             });
 
-        // Evento do botão Detalhes
         document.querySelectorAll('.btn-detalhes')
             .forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -94,7 +89,6 @@ export const ListagemScreen = {
                 });
             });
 
-        // Evento do botão Favoritar
         document.querySelectorAll('.btn-fav')
             .forEach(btn => {
                 btn.addEventListener('click', () => {

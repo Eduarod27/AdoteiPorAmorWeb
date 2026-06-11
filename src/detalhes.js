@@ -3,7 +3,6 @@ import { getAnimais } from './data.js';
 export const DetalhesScreen = {
     render: (petId) => {
         const animais = getAnimais();
-        // O operador '==' previne quebras caso o ID venha como String ou Number
         const pet = animais.find(a => a.id == petId);
         
         if (!pet) {

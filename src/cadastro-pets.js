@@ -1,4 +1,3 @@
-// src/cadastro-pets.js
 
 export const CadastroPetsScreen = {
     render: () => {
@@ -58,7 +57,7 @@ export const CadastroPetsScreen = {
             e.preventDefault();
 
             const novoAnimal = {
-                id: Date.now(), // Gera ID numérico único e gigante
+                id: Date.now(), 
                 nome: document.getElementById('petNome').value,
                 especie: document.getElementById('petEspecie').value,
                 idade: document.getElementById('petIdade').value,

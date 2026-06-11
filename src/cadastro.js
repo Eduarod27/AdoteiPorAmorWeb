@@ -1,8 +1,6 @@
-// src/cadastro.js
 
 export const CadastroScreen = {
     render: () => {
-        // Busca se já existe um usuário salvo para pré-preencher o formulário
         const usuarioExistente = JSON.parse(localStorage.getItem('usuario_logado')) || {};
 
         return `
@@ -71,9 +69,8 @@ export const CadastroScreen = {
         const form = document.getElementById('formCadastro');
         
         form?.addEventListener('submit', (event) => {
-            event.preventDefault(); // Evita o recarregamento da página
+            event.preventDefault(); 
             
-            // Captura os dados atualizados do formulário
             const usuarioLogado = {
                 nome: document.getElementById('cadNome').value.trim(),
                 telefone: document.getElementById('cadTelefone').value.trim(),
@@ -81,12 +78,10 @@ export const CadastroScreen = {
                 email: document.getElementById('cadEmail').value.trim()               
             };
             
-            // Salva no LocalStorage
             localStorage.setItem('usuario_logado', JSON.stringify(usuarioLogado));
             
             alert('Cadastro atualizado com sucesso! 🎉');
             
-            // Redireciona direto para a tela de Perfil
             navigateTo('perfil');
         });
     }

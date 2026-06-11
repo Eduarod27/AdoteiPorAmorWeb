@@ -2,14 +2,12 @@
    PALETA DE CORES & VARIÁVEIS GLOBAIS
    ========================================================================== */
 :root {
-    /* Tons de Azul (Tema Principal) */
     --cor-primaria: #0056b3;
     --cor-primaria-hover: #0080ff;
     --fundo-azul-claro: #e6f0fa;
     --fundo-gradiente-inicio: #f4f8fc;
     --navbar-escuro: #1a2530;
 
-    /* Tons Neutros (Fundos e Textos) */
     --fundo-principal: #f8f9fa;
     --texto-escuro: #1a2530;
     --texto-suave: #555555;
@@ -19,7 +17,6 @@
     --borda-input: #ced4da;
     --branco: #ffffff;
 
-    /* Alertas e Destaques */
     --favoritado-vermelho: #ff4d4d;
     --destaque-vermelho: #dc3545;
 }
@@ -42,7 +39,6 @@ body {
     min-height: 100vh;
 }
 
-/* Container unificado que centraliza o conteúdo de todas as telas */
 .container {
     flex: 1;
     padding: 20px;
@@ -51,7 +47,6 @@ body {
     width: 100%;
 }
 
-/* Títulos padrões de seções */
 .section-title {
     margin-bottom: 25px;
     color: var(--cor-primaria);
@@ -106,7 +101,7 @@ body {
 }
 
 .menu-toggle {
-    display: none; /* Escondido no Desktop */
+    display: none; 
     background: none;
     border: none;
     color: var(--branco);
@@ -117,7 +112,6 @@ body {
 /* ==========================================================================
    PÁGINA: HOME - ABA INICIAL
    ========================================================================== */
-/* Seção Hero de Boas-Vindas */
 .hero {
     background: linear-gradient(135deg, var(--fundo-gradiente-inicio), var(--branco));
     padding: 50px 40px;
@@ -210,7 +204,6 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* Seção Institucional e Pilares */
 .institucional-section {
     margin-top: 40px;
     padding: 20px 0;
@@ -387,7 +380,6 @@ body {
     transform: scale(1.08);
 }
 
-/* Seção de Estatísticas (Impacto) */
 .estatisticas {
     margin-top: 20px;
     padding: 20px 0;
@@ -422,7 +414,6 @@ body {
     text-align: center;
 }
 
-/* Seção de Informações de Contato */
 .contato-card-novo {
     background: var(--branco);
     margin-top: 40px;
@@ -759,11 +750,11 @@ body {
    ========================================================================== */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block; /* Revela o botão hambúrguer */
+        display: block; 
     }
 
     .nav-links {
-        display: none; /* Recolhe o menu principal */
+        display: none; 
         flex-direction: column;
         position: absolute;
         top: 60px;
@@ -775,7 +766,7 @@ body {
     }
 
     .nav-links.active {
-        display: flex; /* Exibido dinamicamente via JS toggle */
+        display: flex; /
     }
 
     .nav-btn {
@@ -784,11 +775,11 @@ body {
     }
 
     .perfil-grid {
-        grid-template-columns: 1fr; /* Quebra em bloco na tela do usuário */
+        grid-template-columns: 1fr; 
     }
 
     .detalhes-header {
-        flex-direction: column; /* Alinha no topo de forma vertical nos Detalhes */
+        flex-direction: column; 
         text-align: center;
     }
 }

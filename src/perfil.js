@@ -2,7 +2,6 @@ import { getAnimais } from './data.js';
 
 export const PerfilScreen = {
     render: () => {
-        // 1. Busca os favoritos (seu código original)
         let favoritos = JSON.parse(localStorage.getItem('adotei_favoritos')) || [];
         const animais = getAnimais();
         const petsFavoritados = animais.filter(pet => favoritos.includes(pet.id));
@@ -17,10 +16,8 @@ export const PerfilScreen = {
             </div>
         `).join('');
 
-        // 2. Busca os dados do usuário cadastrado no localStorage
         const usuario = JSON.parse(localStorage.getItem('usuario_logado'));
 
-        // 3. Cria o HTML dos dados dinamicamente baseado se o usuário existe ou não
         let dadosUsuarioHTML = '';
         if (usuario) {
             dadosUsuarioHTML = `
@@ -41,7 +38,6 @@ export const PerfilScreen = {
             `;
         }
 
-        // 4. Cria o botão de limpar favoritos dinamicamente (só aparece se houver favoritos)
         let botaoLimparFavoritosHTML = '';
         if (favoritos.length > 0) {
             botaoLimparFavoritosHTML = `
@@ -75,7 +71,6 @@ export const PerfilScreen = {
     },
 
     after_render: (navigateTo) => {
-        // Evento dos botões de ver favoritos (seu código original)
         document.querySelectorAll('.btn-ver-mini').forEach(btn => {
             btn.addEventListener('click', () => {
                 const id = btn.getAttribute('data-id');
@@ -83,24 +78,21 @@ export const PerfilScreen = {
             });
         });
 
-        // Evento para o botão de "Cadastrar Agora" (caso não esteja logado)
         document.getElementById('btnIrParaCadastro')?.addEventListener('click', () => {
             navigateTo('cadastro');
         });
 
-        // Evento para o botão de "Sair da Conta" (limpa o cadastro para testes)
         document.getElementById('btnLimparCadastro')?.addEventListener('click', () => {
             if (confirm('Deseja realmente sair e limpar os dados de cadastro?')) {
                 localStorage.removeItem('usuario_logado');
-                navigateTo('perfil'); // Recarrega a tela de perfil
+                navigateTo('perfil'); 
             }
         });
 
-        // ⏬ NOVO EVENTO: Remove a chave de favoritos e recarrega a tela ⏬
         document.getElementById('btnLimparFavoritos')?.addEventListener('click', () => {
             if (confirm('Tem certeza que deseja remover todos os pets dos seus favoritos?')) {
                 localStorage.removeItem('adotei_favoritos');
-                navigateTo('perfil'); // Recarrega o perfil para atualizar a listagem
+                navigateTo('perfil'); 
             }
         });
     }

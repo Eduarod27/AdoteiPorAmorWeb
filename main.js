@@ -7,7 +7,6 @@ import { PerfilScreen } from './src/perfil.js';
 import { CadastroScreen } from './src/cadastro.js'; 
 import { CadastroPetsScreen } from './src/cadastro-pets.js'; 
 
-// Objeto de rotas mapeando todas as telas perfeitamente
 const routes = {
     home: HomeScreen,
     listagem: ListagemScreen,
@@ -17,7 +16,6 @@ const routes = {
     perfil: PerfilScreen
 };
 
-// Tornando a função global para que as outras telas consigam navegar entre si
 export function navigateTo(screenKey, idParam = null) {
     const screen = routes[screenKey];
     const appContainer = document.getElementById('app');
@@ -33,7 +31,6 @@ export function navigateTo(screenKey, idParam = null) {
     }
 }
 
-// Configuração dos cliques do menu superior baseado no index.html
 document.addEventListener('DOMContentLoaded', () => {
     const menuButtons = document.querySelectorAll('.nav-links button[data-screen]');
 
@@ -47,6 +44,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Inicia na Home por padrão
     navigateTo('home');
 });
