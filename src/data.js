@@ -1,4 +1,4 @@
-export const animais = [
+const animaisPadrao = [
     { id: 1, nome: "Mel", especie: "Cão", idade: "2 anos", porte: "Médio", icone: "fa-dog", temperamento: "Dócil e brincalhona" },
     { id: 2, nome: "Thor", especie: "Cão", idade: "1 ano", porte: "Grande", icone: "fa-dog", temperamento: "Ativo e protetor" },
     { id: 3, nome: "Luna", especie: "Gato", idade: "5 meses", porte: "Pequeno", icone: "fa-cat", temperamento: "Curiosa e carinhosa" },
@@ -10,3 +10,23 @@ export const animais = [
     { id: 9, nome: "Simba", especie: "Gato", idade: "1 ano", porte: "Médio", icone: "fa-cat", temperamento: "Sociável" },
     { id: 10, nome: "Cacau", especie: "Cão", idade: "3 anos", porte: "Médio", icone: "fa-dog", temperamento: "Amigável" }
 ];
+
+export function getAnimais() {
+
+    let animaisSalvos =
+        JSON.parse(
+            localStorage.getItem('animais')
+        );
+
+    if (!animaisSalvos) {
+
+        localStorage.setItem(
+            'animais',
+            JSON.stringify(animaisPadrao)
+        );
+
+        animaisSalvos = animaisPadrao;
+    }
+
+    return animaisSalvos;
+}
